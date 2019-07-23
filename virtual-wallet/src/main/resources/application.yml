@@ -1,3 +1,0 @@
-spring:
-  application:    name: virtual-wallet
-  profiles:    active:    - mysql
