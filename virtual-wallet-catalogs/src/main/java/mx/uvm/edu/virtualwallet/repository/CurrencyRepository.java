@@ -15,7 +15,7 @@
 *
 * Nombre de archivo: CurrencyRepository.java
 * Autor: salvgonz
-* Fecha de creación: 22/07/2019
+* Fecha de creación: 23/07/2019
 */
 
 package mx.uvm.edu.virtualwallet.repository;
@@ -30,5 +30,12 @@ import java.util.List;
  * The Interface CurrencyRepository.
  */
 public interface CurrencyRepository extends CrudRepository<Currency, Integer> {
+  
+  /**
+   * Find all.
+   *
+   * @return the list
+   */
   List<Currency> findAll();
+  
 }
