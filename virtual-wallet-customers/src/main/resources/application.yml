@@ -1,0 +1,7 @@
+spring:
+  application:    name: virtual-wallet
+  profiles:    active:    - mysql
+management:
+  endpoints:
+    web:
+      expose: "*"
