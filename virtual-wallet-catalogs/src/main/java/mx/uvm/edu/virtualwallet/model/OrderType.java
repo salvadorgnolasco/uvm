@@ -13,20 +13,14 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 * 
 *
-* Nombre de archivo: Currency.java
+* Nombre de archivo: OrderType.java
 * Autor: salvgonz
-* Fecha de creación: 22/07/2019
+* Fecha de creación: 23/07/2019
 */
 
 package mx.uvm.edu.virtualwallet.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,38 +28,31 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
 /**
- * The Class Currency.
+ * The Class Order.
  */
 @Getter
 @Setter
-/**
- * Instantiates a new currency.
- *
- * @param idCurrency the id currency
- * @param currencyName the currency name
- * @param currencyShortName the currency short name
- */
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "Moneda")
-public class Currency implements Serializable {
-  
-  /** serialVersionUID. */
-  private static final long serialVersionUID = 7578186030786308342L;
+@Table(name = "TipoOrden")
+public class OrderType implements Serializable {
 
-  /** The id currency. */
+  /**
+   * serialVersionUID
+   */
+  private static final long serialVersionUID = 5419994075055521268L;
+
+  /** The id order type. */
   @Id
-  @Column(name = "idMoneda", length = 11)
+  @Column(name = "idTipoOrden", length = 11)
   @GeneratedValue(strategy=GenerationType.IDENTITY)
-  private Integer idCurrency;
+  private Integer idOrderType;
   
-  /** The currency name. */
-  @Column(name = "nombreMoneda", length = 45, nullable = false)
-  private String currencyName;
-  
-  /** The currency short name. */
-  @Column(name = "claveCortaMoneda", length = 5, nullable = false)
-  private String currencyShortName;
+  /** The order type. */
+  @Column(name = "tipoOrden", length = 10)
+  private String orderType;
 }
