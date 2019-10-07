@@ -15,8 +15,9 @@
 *
 * Nombre de archivo: Currency.java
 * Autor: salvgonz
-* Fecha de creación: 22/07/2019
+* Fecha de creación: 5/08/2019
 */
+
 
 package mx.uvm.edu.virtualwallet.model;
 
@@ -26,11 +27,37 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * The Class Currency.
  */
+
+/**
+ * Gets the currency short name.
+ *
+ * @return the currency short name
+ */
+
+/**
+ * Gets the currency short name.
+ *
+ * @return the currency short name
+ */
 @Getter
+
+/**
+ * Sets the currency short name.
+ *
+ * @param currencyShortName the new currency short name
+ */
+
+/**
+ * Sets the currency short name.
+ *
+ * @param currencyShortName the new currency short name
+ */
 @Setter
 /**
  * Instantiates a new currency.
@@ -39,7 +66,31 @@ import java.io.Serializable;
  * @param currencyName the currency name
  * @param currencyShortName the currency short name
  */
+
+/**
+ * Instantiates a new currency.
+ *
+ * @param idCurrency the id currency
+ * @param currencyName the currency name
+ * @param currencyShortName the currency short name
+ */
+
+/**
+ * Instantiates a new currency.
+ *
+ * @param idCurrency the id currency
+ * @param currencyName the currency name
+ * @param currencyShortName the currency short name
+ */
 @AllArgsConstructor
+
+/**
+ * Instantiates a new currency.
+ */
+
+/**
+ * Instantiates a new currency.
+ */
 @NoArgsConstructor
 public class Currency implements Serializable {
   
@@ -54,4 +105,13 @@ public class Currency implements Serializable {
   
   /** The currency short name. */
   private String currencyShortName;
+  
+  /**
+   * To string.
+   *
+   * @return the string
+   */
+  public String toString() {
+    return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
+  }
 }

@@ -20,18 +20,13 @@
 
 package mx.uvm.edu.virtualwallet.ui;
 
-import mx.uvm.edu.virtualwallet.model.Currency;
+import mx.uvm.edu.virtualwallet.ui.catalogos.CurrencyViewer;
+import mx.uvm.edu.virtualwallet.ui.catalogos.OrderTypeViewer;
 
 import com.vaadin.flow.component.accordion.Accordion;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The Class Viewer.
@@ -44,54 +39,14 @@ public class Viewer extends VerticalLayout {
 
   /** The accordion. */
   private Accordion accordion = new Accordion();
-  
-  private TextField txCurrency;
-  
-  private TextField txShortName;
-  
-  private Button btnAddCurrency;
-  
-  private Grid<Currency> grid = new Grid<>(Currency.class);
 
   /**
    * Instantiates a new viewer.
    */
   public Viewer() {
     accordion.setWidth("100%");    
-    accordion.add("Catálogo de monedas", getCurrencyLayout());
+    accordion.add("Catálogo de monedas", new CurrencyViewer().getCurrencyLayout());
+    accordion.add("Catálogo de tipo de ordenes", new OrderTypeViewer().getOrderTypeLayout());
     add(accordion);
-  }
-  
-  private HorizontalLayout getCurrencyForm() {
-    
-    HorizontalLayout layout = new HorizontalLayout();
-    
-    txCurrency = new TextField("Moneda");
-    txShortName = new TextField("Nombre corto");
-    
-    layout.add(txCurrency);
-    layout.add(txShortName);
-    
-    return layout;
-  }
-  
-  private VerticalLayout getCurrencyLayout() {
-    VerticalLayout layout = new VerticalLayout();
-    List<Currency> currencies = new ArrayList<>();
-    currencies.add(new Currency(1, "bitcoint", "btc"));
-    currencies.add(new Currency(2, "ethereum", "eth"));
-    
-    grid.setItems(currencies);
-    grid.setColumns("idCurrency", "currencyName", "currencyShortName");
-    grid.setHeight("200px");
-    grid.setWidth("100%");
-    
-    btnAddCurrency = new Button("Agregar moneda...");
-   
-    layout.add(getCurrencyForm());
-    layout.add(btnAddCurrency);
-    layout.add(grid);
-    
-    return layout;
   }
 }
